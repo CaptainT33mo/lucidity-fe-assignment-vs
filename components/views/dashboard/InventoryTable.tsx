@@ -13,10 +13,9 @@ import { formatNumber } from '@/lib/utils'
 
 interface InventoryTableProps {
     products: Product[]
-    isAdmin?: boolean
 }
 
-export default function InventoryTable({ products, isAdmin = true }: InventoryTableProps) {
+export default function InventoryTable({ products }: InventoryTableProps) {
     const { deleteProduct, toggleDisableProduct } = useInventoryStore();
     const { role } = usePermissionStore();
     const [editingProduct, setEditingProduct] = useState<Product | null>(null)
