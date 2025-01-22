@@ -22,17 +22,17 @@ export default function InventoryTable({ products, isAdmin = true }: InventoryTa
     const [editingProduct, setEditingProduct] = useState<Product | null>(null)
 
     const handleDelete = (id: number) => {
-        if (!isAdmin) return
+        if (role !== "admin") return
         deleteProduct(id)
     }
 
     const handleEdit = (product: Product) => {
-        if (!isAdmin || product.disabled) return
+        if (role !== "admin" || product.disabled) return
         setEditingProduct(product)
     }
 
     const handleDisable = (id: number) => {
-        if (!isAdmin) return
+        if (role !== "admin") return
         toggleDisableProduct(id)
     }
 
@@ -61,13 +61,13 @@ export default function InventoryTable({ products, isAdmin = true }: InventoryTa
                             <TableCell className="py-2">{prod.quantity}</TableCell>
                             <TableCell className="py-2">${formatNumber(prod.value)}</TableCell>
                             <TableCell className="py-2">
-                                <Button className='text-green-500 px-1.5 hover:bg-transparent' variant="ghost" disabled={role === "admin" || prod.disabled} onClick={() => handleEdit(prod)}>
+                                <Button className='text-green-500 px-1.5 hover:bg-transparent' variant="ghost" disabled={role !== "admin" || prod.disabled} onClick={() => handleEdit(prod)}>
                                     <LuPencil />
                                 </Button>
-                                <Button className='text-purple-500 px-1.5  hover:bg-transparent' variant="ghost" disabled={role === "admin"} onClick={() => handleDisable(prod.id)}>
+                                <Button className='text-purple-500 px-1.5  hover:bg-transparent' variant="ghost" disabled={role !== "admin"} onClick={() => handleDisable(prod.id)}>
                                     {prod.disabled ? <LuEyeOff /> : <LuEye />}
                                 </Button>
-                                <Button className='text-red-500 px-1.5  hover:bg-transparent' variant="ghost" disabled={role === "admin"} onClick={() => handleDelete(prod.id)}>
+                                <Button className='text-red-500 px-1.5  hover:bg-transparent' variant="ghost" disabled={role !== "admin"} onClick={() => handleDelete(prod.id)}>
                                     <LuTrash />
                                 </Button>
                             </TableCell>

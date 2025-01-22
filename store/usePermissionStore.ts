@@ -7,6 +7,6 @@ type PermissionStore = {
 };
 
 export const usePermissionStore = create<PermissionStore>()((set) => ({
-  role: "user",
+  role: "admin",
   setRole: (role) => set({ role }),
 }));

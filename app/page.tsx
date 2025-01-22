@@ -31,10 +31,10 @@ export default function Home() {
     <>
       <nav className="p-4 flex justify-end items-center bg-black text-white border-b border-b-gray-800">
         <div className="flex items-center gap-2">
-          <Label>Admin</Label>
+          <Label>User</Label>
           <Switch checked={role === "admin"} className='data-[state=unchecked]:bg-gray-600 data-[state=checked]:bg-[#7f894e]' thumbClass='data-[state=checked]:bg-[#eafc86]'
             onCheckedChange={handleToggleRole} />
-          <Label>User</Label>
+          <Label>Admin</Label>
         </div>
       </nav>
       <main className="p-4">
