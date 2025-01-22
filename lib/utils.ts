@@ -7,6 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Helper function to parse price/value strings, add an ID, etc.
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 export function transformProducts(data: any[]): Product[] {
   return data.map((item, index) => ({
     id: index + 1,

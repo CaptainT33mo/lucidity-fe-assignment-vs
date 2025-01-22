@@ -1,6 +1,6 @@
 import { formatNumber } from "@/lib/utils";
 import { StatsCardsProps } from "@/types";
-import { LuShapes, LuShoppingCart } from "react-icons/lu";
+import { LuShapes } from "react-icons/lu";
 import { MdOutlineRemoveShoppingCart, MdOutlineShoppingCart } from "react-icons/md";
 import { RiExchangeDollarLine } from "react-icons/ri";
 

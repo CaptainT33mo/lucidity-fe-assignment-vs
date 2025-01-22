@@ -1,5 +1,3 @@
-import { Product } from "@/types";
-
 export const MOCK_INVENTORY = [
   {
     name: "Bluetooth",
